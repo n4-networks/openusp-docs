@@ -1,7 +1,7 @@
 ---
-title: "My First Post"
+title: "OpenUSP Documentation"
 date: 2023-04-25T12:49:38+05:30
-draft: true
+draft: false
 ---
 
 # What is OpenUSP
