@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenUSP Documentation</title>
+    <link>https://docs.openusp.io/</link>
+    <description>Recent content on OpenUSP Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Apr 2023 12:49:38 +0530</lastBuildDate><atom:link href="https://docs.openusp.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenUSP Documentation</title>
+      <link>https://docs.openusp.io/posts/my-first-post/</link>
+      <pubDate>Tue, 25 Apr 2023 12:49:38 +0530</pubDate>
+      
+      <guid>https://docs.openusp.io/posts/my-first-post/</guid>
+      <description>What is OpenUSP #  OpenUSP is an open source implementation of Broadband Forum&amp;rsquo;s Universal Services Platform (USP). It consists of a Controller, Database, Message Broker, Command Line Interface (Cli) and REST ApiServer.
+Licenses #  The project is licensed under &amp;ldquo;Apache License 2.0&amp;rdquo; which means you are free to use for your private or commercial purpose. Please read &amp;ldquo;Apache License 2.0&amp;rdquo; terms and conditions for more details
+Installation and Run #  USP Controller and other modules as docker containers #  git clone git@github.</description>
+    </item>
+    
+  </channel>
+</rss>
