@@ -2,7 +2,7 @@
 
 baseURL = 'https://docs.openusp.com/'
 title = 'OpenUSP'
-theme = 'hugo-book'
+theme = 'hugo-book-copy'
 
 # Book configuration
 disablePathToLower = true
