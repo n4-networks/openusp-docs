@@ -86,6 +86,3 @@ docker run --env-file configs/openusp.env --network=openusp -it n4networks/openu
 ```
 The above docker command would create CLI container from the image built earlier through above docker compose command. It would also run the container in interactive mode.
 The env file has few ENVIRONMENT variables to connect CLI to the API Server and the Controller.
-
-
-For any help, please feel free to contact [support@openusp.io](mailto:support@openusp.io).
