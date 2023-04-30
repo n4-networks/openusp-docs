@@ -3,7 +3,7 @@ title: Operation
 type: docs
 ---
 
-# Opearation 
+# Operation 
 
 If you have come to Operation page, we assume you are able to install and run all the containers successfully. If so, we appreciate your effort and time and if not, please feel free to contact [support@openusp.io](mailto:support@openusp.io). We will be happy to help for sure.
 
