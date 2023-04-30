@@ -5,48 +5,22 @@ type: docs
 
 # Installation 
 
-There are many ways **OpenUSP** can be installed on local server or on the cloud (e.g. GCP, AWS etc.). To start with you can use Docker Compose utility to install and run all the components in one shot.
+There are many ways **OpenUSP** can be installed on local server or on the cloud (e.g. GCP, AWS etc.). To install on a local server, you can use Docker Compose utility to install and run all the components in one shot.
 
 ## USP Controller and other modules as docker containers
 
-### Dependencies and tools
-OpenUSP consists of Controller, API Server and CLI written in golang by OpenUSP contributers. Rest of the open source components, Mongo, ApacheMQ, OBUSPA are used from their respective projects/organisations.
+### Install Docker
+Please refer to the following link to install docker on your local server.
 
-To build Controller, API Server and CLI you would need to install [golang](https://go.dev) and [Make](https://www.gnu.org/software/make/) utility.
-
-Please follow the following links to install these:
-
-1. Golang: https://go.dev/doc/install
-2. Make utility:
-{{< tabs "makeinstall" >}}
-
-{{< tab "Ubuntu" >}}
-```
-sudo apt install make
-or
-sudo apt-get install make
-```
-{{< /tab >}}
-
-{{< tab "Fedora" >}}
-```
-yum install make
-```
-{{< /tab >}}
-{{</tabs>}}
-
-
-3. Docker: https://docs.docker.com/engine/install/
-
+https://docs.docker.com/engine/install/
 
 ### Clone the github repo to your local machine
 ```
-git clone git@github.com:n4-networks/openusp
+git clone --recursive git@github.com:n4-networks/openusp
 cd openusp
+
 ```
-### Build and Run
-From the top level directory (openusp) you can invoke make to build all the components (Controller, API Server, CLI packages and binaries)
-or you can use the below command to build and run using Docker compose
+### Install and Start Services
 
 ```
 docker compose -f deployments/docker-compose.yaml up -d
@@ -54,17 +28,54 @@ docker compose -f deployments/docker-compose.yaml up -d
 ```
 With the above commands the following actions would take place:
 
-1. All the 3rd party docker images (e.g. ActiveMQ, Mongo, Redis Cache etc.) would be fetched from docker hub.
-2. Controller, API Server and CLI docker images would be built locally from your clone directory.
-3. A pre-built OBUSP (Open Broadband User Services Platform) Agent (OB-USP-AGENT) would be fetched from docker hub and run as a container
-3. A docker network bridge named "openusp" would be created with gateway IP as 10.5.0.1 and IP range of 10.5.0.0/16
-4. All the containers would be created and run locally, they would be connected to "openusp" network
+1. All the 3rd party docker images (e.g. ActiveMQ, Mongo, Redis Cache etc.) are fetched (only for the first time) from docker hub.
+2. Pre-built Controller, API Server and  Agent docker images are fetched (only for the first time).
+3. A docker network bridge named "openusp" is created with gateway IP as 10.5.0.1 and IP range of 10.5.0.0/16
+4. Containers are created for all the Services and are connected to "openusp" bridge network
+5. Services have been started
+
+If everything is alright you would see the bellow on your terminal:
+
+```
+[+] Running 6/6
+ ✔ Container openusp-cache       Running  0.0s 
+ ✔ Container openusp-broker      Running  0.0s 
+ ✔ Container openusp-agent       Running  0.0s 
+ ✔ Container openusp-db          Healthy  1.0s 
+ ✔ Container openusp-controller  Running  0.0s 
+ ✔ Container openusp-apiserver   Running  0.0s
+```
 
 ## CLI
 
-```
-docker run --env-file configs/openusp.env --network=openusp -it n4networks/openusp-cli
+To run CLI use the following command:
 
 ```
-The above docker command would create CLI container from the image built earlier through above docker compose command. It would also run the container in interactive mode.
-The env file has few ENVIRONMENT variables to connect CLI to the API Server and the Controller.
+docker compose -f deployment/docker-compose.yaml run --rm openusp-cli
+
+```
+The above docker compose command would fetch pre-built OpenUSP CLI from docker hub. Create CLI container and run it in iterative mode.
+
+If everything goes fine you would be prompted `` OpenUSP-Cli>> `` on the screen. Please follow [Operation](https://docs.openusp.io/docs/operation) link to know more about how to operate on OpenUSP platform.
+
+
+## Validation
+
+To see if all the services are working fine or to know the status you can use the following commands:
+
+```
+source ./scripts/bash/aliases.sh
+dc ps
+
+dc top
+
+```
+To see container logs
+
+```
+dc logs openusp-controller
+dc logs openusp-agent
+dc logs openusp-apiserver
+
+```
+
