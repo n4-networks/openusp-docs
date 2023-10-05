@@ -50,7 +50,7 @@ You can build the binaries using make or "go build" tool. You can also use docke
 Docker images are built through docker compose by passing controller, apiserver, cli and obuspa Dockerfile from build directory.
 
 ```
-docker compose -f deployment/docker-compose.yaml build
+docker compose -f deployments/docker-compose.yaml build
 
 ```
 
@@ -71,7 +71,7 @@ You can also use `` go build `` or `` make `` from these directories to build in
 ## Run
 
 ```
-docker compose -f deployment/docker-compose.yaml up -d
+docker compose -f deployments/docker-compose.yaml up -d
 
 ```
 
@@ -80,7 +80,7 @@ Once all the services are up and running, you can run CLI either as a container 
 ### CLI as a container
 
 ```
-docker compose -f deployment/docker-compose.yaml run --rm openusp-cli
+docker compose -f deployments/docker-compose.yaml run --rm openusp-cli
 
 ```
 
@@ -93,4 +93,4 @@ source scripts/bash/aliases.sh
 alias
 
 ```
-Now you can use "dc" instead of "docker compose -f deployment/docker-compose.yaml" everywhere.
+Now you can use "dc" instead of "docker compose -f deployments/docker-compose.yaml" everywhere.

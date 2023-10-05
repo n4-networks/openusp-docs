@@ -51,7 +51,7 @@ If everything is alright you would see the bellow on your terminal:
 To run CLI use the following command:
 
 ```
-docker compose -f deployment/docker-compose.yaml run --rm openusp-cli
+docker compose -f deployments/docker-compose.yaml run --rm openusp-cli
 
 ```
 The above docker compose command would fetch pre-built OpenUSP CLI from docker hub. Create CLI container and run it in iterative mode.
